@@ -5,7 +5,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-# el decorador sirve para usar el metodo de una clase pero implementadolo en una funcion
+# @ el decorador sirve para usar el metodo de una clase pero implementadolo en una funcion
 
 @app.route('/')
 def inicio():
