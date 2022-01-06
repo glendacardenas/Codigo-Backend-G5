@@ -1,32 +1,73 @@
 class Vehiculo:
-    """ Clase que sirve para el uso de los vehiculos"""
+    """Clase que sirve para el uso de los vehiculos"""
 
     def __init__(self, color, modelo, traccion):
         self.color = color
-        self.modelo = color
-        self.traccion = color
-        # ecncapsulado el atributo velocidad para que no pueda ser accedido desde afuera de la clase
+        self.modelo = modelo
+        self.traccion = traccion
+        # encapsulado el atributo velocidad para que no pueda ser accedido desde afuera de la clase
         self.__velocidad = 0
 
     def acelerar(self):
-        """MEtodo que acelera el vehiculo de 20 en 20"""
+        '''Metodo que acelera el vehiculo de 20 en 20'''
         self.__velocidad += 20
-        return 'LA velocidad actual es {} km/h'.format(self.__velocidad)
+        return 'La velocidad actual es: {} km/h'.format(self.__velocidad)
 
     def desacelerar(self):
-        """MEtodo que acelera el vehiculo de 20km/h"""
+        '''Metodo que desacelera el vehiculo en 20km/h'''
         self.__velocidad -= 20
-        self.__prueba()
+        return self.__velocidad
+
+    def get_velocidad(self):
         return self.__velocidad
 
 
 class VehiculoVolador(Vehiculo):
     def __init__(self, color, modelo, traccion, vuela=False):
         super().__init__(color, modelo, traccion)
-        self.vuela = vuela
+        self.__vuela = vuela
 
     def volar(self):
-        self.vuela = True
+        self.__vuela = True
 
     def aterrizar(self):
-        self.vuela = False
+        self.__vuela = False
+
+    def estado(self):
+        estado_volando = 'esta volando' if self.__vuela else 'esta aterrizando'
+        return 'El vehiculo es de color: {} modelo :{} traccion:{} velocidad: {}| y {} '.format(self.color, self.modelo, self.traccion, self.get_velocidad(), estado_volando),
+
+
+class VehiculoOffRoad(VehiculoVolador):
+    def __init__(self, color, modelo, traccion, vuela=False, sumergido=False):
+        super().__init__(color, modelo, traccion, vuela)
+
+
+obj_vehiculo = Vehiculo('verde', 'rx5', '4x4')
+obj_vehiculo_volador = VehiculoVolador('blanco', 'xyz', '4x2')
+# obj_vehiculo_volador.volar()
+obj_vehiculo_volador.acelerar()
+
+# print(obj_vehiculo_volador.vuela)#debe lanzar error que no existe
+print(obj_vehiculo_volador.color)
+
+# print(obj_vehiculo.vuela)
+
+obj_vehiculo_offroad = VehiculoOffRoad('azul', 'asda', '4x2')
+obj_vehiculo_offroad.acelerar()
+obj_vehiculo_offroad.desacelerar()
+obj_vehiculo_offroad.volar()
+# print
+
+# Primero que el atributo vuela sea privado y luego tener un metodo llamado estado en el cual me indique cual es el estado del vehiculo, que me diga
+# su color modelo, traccion, velocidad y si esta volando o si esta aterrizando
+
+print(obj_vehiculo_volador.estado())
+
+# isinstance() > devolvera true si es que la instancia es de la clase
+
+print(isinstance(obj_vehiculo_offroad, Vehiculo))
+
+# issubclass() > devolvera true si es que la primera clase es herencia de la segunda clase
+
+print(issubclass(VehiculoOffRoad, Vehiculo))
