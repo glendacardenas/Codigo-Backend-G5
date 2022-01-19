@@ -66,6 +66,11 @@ INSERT INTO actividades (nombre, intensidad, estado, persona_id) VALUES
 
 select * from actividades ;
 select * from personas ;
+-- sirve para agregar una nueva columna
+ALTER TABLE actividades ADD persona_id INT;
+-- sirve para agregar una nueva relacion FK en una tabla
+alter table actividades add foreign key(persona_id) references personas(id);
+
 -- modificar algo de la tabla
 ALTER TABLE actividades MODIFY id INT AUTO_INCREMENT PRIMARY KEY UNIQUE;
 DROP TABLE personas; 
@@ -74,7 +79,9 @@ INSERT INTO personas (nombre, dni, fecha_nacimiento, sexo, estado, created_at) V
 
 INSERT INTO actividades (nombre, intensidad, estado) VALUES
                         ('NADAR', 'ALTA', true);
-
+insert into actividades(nombre, intensidad, estado, persona_id) values
+						('parrilladas', 'alta', true, 1);
+select * from actividades;
 select * from personas inner join actividades on personas.id = actividades.persona_id;
 select * from personas left join actividades on personas.id = actividades.persona_id;
 select * from personas right join actividades on personas.id = actividades.persona_id;
