@@ -1,22 +1,26 @@
 {
-  "name": "test-express",
+  "name": "minimarket",
   "version": "1.0.0",
-  "description": "ejemplo de test con node.js",
+  "description": "proyecto de minimarkets",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
+  "keywords": [
+    "nodejs",
+    "express",
+    "middlewares"
+  ],
   "author": "glenda cardenas vilca",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.2"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.0",
-    "jest": "^27.4.7",
     "nodemon": "^2.0.15"
   }
 }
