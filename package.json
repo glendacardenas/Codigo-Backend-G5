@@ -1,0 +1,19 @@
+{
+  "name": "cafeteria",
+  "version": "1.0.0",
+  "description": "cafeteria",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glendacardenas/Codigo-Backend-G5.git"
+  },
+  "author": "glenda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glendacardenas/Codigo-Backend-G5/issues"
+  },
+  "homepage": "https://github.com/glendacardenas/Codigo-Backend-G5#readme"
+}
