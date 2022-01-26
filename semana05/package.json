@@ -5,14 +5,20 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest",
+    "test": "dotenv -e .env.test -- node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "node index.js",
-    "start:dev": "nodemon index.js"
+    "start:dev": "nodemon index.js",
+    "prisma:migrate:run:test": "dotenv -e .env.test -- prisma migrate deploy"
   },
   "author": "glenda cardenas vilca",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
+    "@prisma/client": "^3.8.1",
+    "dotenv-cli": "^4.1.1",
+    "express": "^4.17.2",
+    "lodash.snakecase": "^4.1.1",
+    "pluralize": "^8.0.0",
+    "prisma": "^3.8.1"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
