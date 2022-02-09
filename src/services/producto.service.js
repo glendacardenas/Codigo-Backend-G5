@@ -1,5 +1,5 @@
-import { Prisma } from "@prisma/client";
-import { prisma } from "../prisma";
+import Prisma from "@prisma/client";
+import { prisma } from "../prisma.js";
 
 export class ProductoService {
     static async crearProducto(data) {
@@ -7,7 +7,7 @@ export class ProductoService {
             const nuevoProducto = await prisma.producto.create({ data });
             return { content: nuevoProducto };
         } catch (error) {
-            if (error instanceof Prisma.PrismaClientKnownRequestError) {
+            if (error instanceof Prisma.Prisma.PrismaClientKnownRequestError) {
                 //el producto ya existe
                 // la data es insuficiente
                 //la fk del tipo de producto no existe

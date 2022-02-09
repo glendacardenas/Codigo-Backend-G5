@@ -1,7 +1,7 @@
 import express, { json } from "express";
 import morgan from "morgan";
 import { authRouter } from "./routes/auth.routes.js";
-import { tipoProductoRouter } from "./routes/tipoProducto.route.js";
+import { tipoProductoRouter } from "./routes/tipoProducto.routes.js";
 import { productoRouter } from "./routes/producto.routes.js";
 
 

@@ -7,7 +7,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "start:dev": "dotenv -e .env -- nodemon src/index.js"
+    "start:dev": "dotenv -e .env -- nodemon src/index.js",
+    "crear_migracion": "prisma migrate dev --preview-feature",
+    "correr_migraciones": "prisma migrate deploy --preview-feature",
+    "reset_db": "prisma migrate reset --preview--feature --skip-seed"
   },
   "repository": {
     "type": "git",
@@ -21,11 +24,12 @@
   "homepage": "https://github.com/glendacardenas/Codigo-Backend-G5#readme",
   "dependencies": {
     "@prisma/client": "^3.8.1",
+    "aws-sdk": "^2.1072.0",
     "bcrypt": "^5.0.1",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
-    "prisma": "^3.8.1",
+    "prisma": "^3.9.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {
