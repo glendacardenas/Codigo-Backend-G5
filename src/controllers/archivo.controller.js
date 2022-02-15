@@ -1,5 +1,6 @@
 import { ArchivosService } from "../services/archivos.service.js";
-import { archivoDto } from "../services/dtos/archivo.dto.js";
+import { archivoDto } from "../services/dtos/request/archivo.dto.js";
+//import { archivoDto } from "../services/dtos/archivo.dto.js";
 
 export async function crearArchivo(req, res) {
     try {
